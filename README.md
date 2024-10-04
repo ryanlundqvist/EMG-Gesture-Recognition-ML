@@ -1,10 +1,22 @@
-# 🎈 Blank app template
+# ML Group 29 | EMG Project
 
-A simple Streamlit app template for you to modify!
+dataset:
+https://archive.ics.uci.edu/dataset/481/emg+data+for+gestures
 
-[![Open in Streamlit](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://blank-app-template.streamlit.app/)
+\
+Name  | email | github username
+\
+Abishek Saravanakumar a7abishek@gmail.com abishakex
+\
+Adam Bhavnagarwala adambhav2623@gmail.com abhavnag3
+\
+Ryan Lundqvist ryan.lundqvist@icloud.com ryanlundqvist
+\
+Madhumita Mocharla madhu.mocharla@gmail.com marvisbot
+\
+Isaac Gil isaacgil325@gmail.com isaacgil325
 
-### How to run it on your own machine
+### How to run the streamlit on your own machine
 
 1. Install the requirements
 
