@@ -3,6 +3,15 @@ import streamlit as st
 st.title("🤖 Machine Learning | EMG | G29")
 st.header("Proposal Report", divider="rainbow")
 st.subheader("Introduction & Background", divider="blue")
+
+st.markdown(
+"""
+The following list won't indent no matter what I try:
+- Item 1
+- Item 2
+- Item 3
+"""
+)
 st.write(f"***What is an EMG:***" + "hello")
 st.write("hello")
 
