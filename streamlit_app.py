@@ -6,9 +6,9 @@ st.write(
     "Put the proposal here, you can use headers for formatting or anything you want (Docs: https://docs.streamlit.io/)."
 )
 
-st.header("Gantt Chart")
+st.subheader("Gantt Chart")
 st.image("4641_gantt.png")
-st.header("Contributions")
+st.subheader("Contributions")
 st.image("4641_proposal_contributions.png")
 
 
