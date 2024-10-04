@@ -1,8 +1,9 @@
 import streamlit as st
 
 st.title("🤖 Machine Learning | EMG | G29")
-st.header("Proposal Report", divider="rainbow")
-st.subheader("Introduction & Background", divider="blue")
+st.header("Introduction & Background", divider="rainbow")
+st.subheader("Literature Review", divider="blue")
+st.subheader("Dataset Description", divider="blue")
 
 st.markdown(
 """
@@ -19,16 +20,33 @@ What is EMG Gesture Classification?
 - Process in which electric signals gendered by muscle contractions are monitored inorder to identify specific gestures. 
 """
 )
-st.subheader("Problem Definition", divider="blue")
-st.subheader("Methods", divider="blue")
-st.subheader("Expected Results & Discussion", divider="blue")
-st.subheader("References", divider="blue")
 
 
 
-st.subheader("Gantt Chart", divider="blue")
+st.header("Problem Definition", divider="rainbow")
+st.subheader("Problem", divider="blue")
+st.subheader("Motivation", divider="blue")
+
+
+
+st.header("Methods", divider="rainbow")
+st.subheader("Data Preprocessing", divider="blue")
+st.subheader("Candidate ML Algorithms/Models", divider="blue")
+
+
+
+st.header("Expected Results & Discussion", divider="rainbow")
+st.subheader("Quantitative Metrics", divider="blue")
+st.subheader("Project Goals", divider="blue")
+st.subheader("Expected Results", divider="blue")
+
+st.header("References", divider="rainbow")
+
+
+
+st.header("Gantt Chart", divider="rainbow")
 st.image("4641_gantt.png")
-st.subheader("Contributions")
+st.header("Contributions", divider="rainbow")
 st.image("4641_proposal_contributions.png")
 
 
