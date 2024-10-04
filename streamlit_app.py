@@ -12,9 +12,13 @@ What is an EMG (Electromyogram)?
   - In regards to our dataset, The Myo Thalmic bracelet captures signals from the forearm. It does this by utilizing 8 EMG sensors and a bluetooth module. 
 """
 )
-st.write(f"***What is an EMG:***" + "hello")
-st.write("hello")
 
+st.markdown(
+"""
+What is EMG Gesture Classification?
+- Process in which electric signals gendered by muscle contractions are monitored inorder to identify specific gestures. 
+"""
+)
 st.subheader("Problem Definition", divider="blue")
 st.subheader("Methods", divider="blue")
 st.subheader("Expected Results & Discussion", divider="blue")
