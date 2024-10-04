@@ -3,7 +3,7 @@ import streamlit as st
 st.title("🤖 Machine Learning | EMG | G29")
 st.header("Proposal Report", divider="rainbow")
 st.subheader("Introduction & Background", divider="blue")
-st.write("What is EMG")
+st.write(f"**What is an EMG**")
 
 st.subheader("Problem Definition", divider="blue")
 st.subheader("Methods", divider="blue")
