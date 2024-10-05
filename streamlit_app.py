@@ -63,14 +63,25 @@ st.write("Properly reading and interpreting EMG data has massive implications in
 
 st.header("Methods", divider="rainbow")
 st.subheader("Data Preprocessing", divider="blue")
-st.subheader("Candidate ML Algorithms/Models", divider="blue")
+st.write("1: Signal Smoothing - Use a low-pass filter to reduce signal noise")
+st.write("2: Normalizing Trial Data with Z-score  - Minimizes inter-subject variability")
+st.write("3: Feature Extraction - Extract important data information, reduce dimension")
 
+st.subheader("Candidate ML Algorithms/Models", divider="blue")
+st.write("1: Random Forests [Supervised] We would be able to get the most prominent features from the data and classify them based on that to the respective hand gesture")
+st.write("2: GMM [Supervised] GMM has the capability to group each hand gesture into a cluster")
+st.write("3: CNN [Supervised] CNNs are great at classification for “spatial” data, and our multi-channel data is similar to an image’s pixel intensities, except we have electrical intensities instead.")
 
 
 st.header("Expected Results & Discussion", divider="rainbow")
 st.subheader("Quantitative Metrics", divider="blue")
+st.write("1: Confusion Matrix")
+st.write("2: F-Score")
+st.write("3: Accuracy")
 st.subheader("Project Goals", divider="blue")
+st.write("To be able to classify hand gestures based on EMG data so that we would be able to help people who use prosthetics")
 st.subheader("Expected Results", divider="blue")
+st.write("We expect to classify the results by all the 3 techniques. We assume that CNN would perform the best, followed by GMM then Random Forests. We picked these 3 topics as we thought it would be the most diverse set of topics to explore.")
 
 st.header("References", divider="rainbow")
 
