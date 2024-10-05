@@ -45,7 +45,7 @@ st.markdown(
 """
 Article: “EMG-based online classification of gestures with recurrent neural networks”
 DOI: https://www.sciencedirect.com/science/article/pii/S0167865519302089?casa_token=S5bUDUK0LzwAAAAA:4ITvJzw3veWQvbAnLJTPRQTyMjddRZSMujJ_Lw-bqfIBOvSjje_uXd69xGUXXIplcwjLH-KNbQ
-- IDK YET
+- This paper involves using RNNs for online hand gesture classification with EMG signals, avoiding motion detection calibration. In the paper they compare FFNN, RNN, LSTM, and GRU models finding that they achieve similar accuracy but that LSTM/GRU are most efficient/faster to train.
 """
 )
 
