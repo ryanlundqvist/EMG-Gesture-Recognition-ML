@@ -38,7 +38,7 @@ st.markdown(
 """
 Article: “Gesture Classification in Electromyography Signals for Real-Time Prosthetic Hand Control Using a Convolutional Neural Network-Enhanced Channel Attention Model”
 DOI: https://www.mdpi.com/2306-5354/10/11/1324
-- Paper 3 describes the approach of using a CNN-ECA gesture recognition framework, utilizing a combination of the CNN architecture and ECA module to better enhance the focus and capture ability of important features. They also utilized envelope extraction and sliding window segmentation as preprocessing methods, reducing the influence of noise and improving signal steadiness. Overall, this combined approach produced significant improvements compared to classical approaches of just CNN and CNN-LSTM.
+- This paper describes the approach of using a CNN-ECA gesture recognition framework, utilizing a combination of the CNN architecture and ECA module to better enhance the focus and capture ability of important features. They also utilized envelope extraction and sliding window segmentation as preprocessing methods, reducing the influence of noise and improving signal steadiness. Overall, this combined approach produced significant improvements compared to classical approaches of just CNN and CNN-LSTM.
 """
 )
 st.markdown(
