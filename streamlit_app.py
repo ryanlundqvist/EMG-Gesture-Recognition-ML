@@ -88,6 +88,7 @@ st.header("References", divider="rainbow")
 st.write("[1]K. H. Lee, J. Y. Min, and S. Byun, “Electromyogram-Based Classification of Hand and Finger Gestures Using Artificial Neural Networks,” Sensors, vol. 22, no. 1, p. 225, Dec. 2021, doi: https://doi.org/10.3390/s22010225.")
 st.write("[2]G. Yu, Z. Deng, Z. Bao, Y. Zhang, and B. He, “Gesture Classification in Electromyography Signals for Real-Time Prosthetic Hand Control Using a Convolutional Neural Network-Enhanced Channel Attention Model,” Bioengineering, vol. 10, no. 11, pp. 1324–1324, Nov. 2023, doi: https://doi.org/10.3390/bioengineering10111324.")
 st.write("[3]Swati Shilaskar, Shripad Bhatlawande, Ranveer Chavare, Aditya Ingale, R. Joshi, and Aditya Vaishale, “Human Hand Movement Classification based on EMG Signal using different Feature Extractor,” Biomedical and Pharmacology Journal, vol. 17, no. 1, pp. 71–82, Mar. 2024, Available: https://biomedpharmajournal.org/vol17no1/human-hand-movement-classification-based-on-emg-signal-using-different-feature-extractor/")
+st.write("[4]M. Simão, P. Neto, and O. Gibaru, “EMG-based online classification of gestures with recurrent neural networks,” Pattern Recognition Letters, vol. 128, pp. 45–51, Dec. 2019, doi: https://doi.org/10.1016/j.patrec.2019.07.021. ‌")
 
 
 st.header("Gantt Chart", divider="rainbow")
