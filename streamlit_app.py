@@ -84,7 +84,9 @@ st.subheader("Expected Results", divider="blue")
 st.write("We expect to classify the results by all the 3 techniques. We assume that CNN would perform the best, followed by GMM then Random Forests. We picked these 3 topics as we thought it would be the most diverse set of topics to explore.")
 
 st.header("References", divider="rainbow")
-
+st.write("[1]K. H. Lee, J. Y. Min, and S. Byun, “Electromyogram-Based Classification of Hand and Finger Gestures Using Artificial Neural Networks,” Sensors, vol. 22, no. 1, p. 225, Dec. 2021, doi: https://doi.org/10.3390/s22010225.")
+st.write("[2]G. Yu, Z. Deng, Z. Bao, Y. Zhang, and B. He, “Gesture Classification in Electromyography Signals for Real-Time Prosthetic Hand Control Using a Convolutional Neural Network-Enhanced Channel Attention Model,” Bioengineering, vol. 10, no. 11, pp. 1324–1324, Nov. 2023, doi: https://doi.org/10.3390/bioengineering10111324.")
+st.write("[3]Swati Shilaskar, Shripad Bhatlawande, Ranveer Chavare, Aditya Ingale, R. Joshi, and Aditya Vaishale, “Human Hand Movement Classification based on EMG Signal using different Feature Extractor,” Biomedical and Pharmacology Journal, vol. 17, no. 1, pp. 71–82, Mar. 2024, Available: https://biomedpharmajournal.org/vol17no1/human-hand-movement-classification-based-on-emg-signal-using-different-feature-extractor/")
 
 
 st.header("Gantt Chart", divider="rainbow")
