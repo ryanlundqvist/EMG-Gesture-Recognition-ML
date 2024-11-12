@@ -65,6 +65,69 @@ st.write("Properly reading and interpreting EMG data has massive implications in
 st.header("Methods", divider="rainbow")
 st.subheader("Data Preprocessing", divider="blue")
 st.write("We began by cleaning the dataset by removing unmarked data (class 0) to ensure relevance. Features and labels were separated, and outliers were eliminated using the Z-score method with a threshold of 3 to maintain data integrity. The data was then standardized using `StandardScaler` to normalize feature scales, which is crucial for many machine learning algorithms. To capture temporal patterns in the EMG signals, we segmented the data into overlapping windows (window size of 100 with 50% overlap). From each window, we extracted statistical features such as standard deviation, maximum, minimum, root mean square (RMS), absolute mean, and zero crossings. Finally, the processed data was split into training and testing sets to facilitate model training and evaluation.")
+st.code("""
+
+def processAllSubs(root_dir = "EMG_data_for_gestures-master", window_size=100, overlap=0.5):
+    processed_subs = {}
+    for sub_id in range(1, 37):
+        print(f"Doing subject {sub_id}...")
+        print("======================")
+        curr = fo.analyze_single_subject(sub_id)
+
+        print("Cleaning data...")
+        X, y = cleanDataAndSepFeat(curr)
+        X_standardized = X
+        #X_standardized = standardize(X)
+        #print("Size after cleaning", X_standardized.shape)
+        #print("--------------")
+
+        print("Removing outliers...")
+        X_no_outliers = removeOutliers(X_standardized, threshold=3)
+        #print("Size after outliers", X_no_outliers.shape)
+        #print("--------------")
+    
+        #maybe include reduce noise here
+        
+        print("Creating windows...")
+        windows, window_labels = createWindows(X_no_outliers, y, window_size, overlap)
+        #print("Size after windows: ", len(windows))
+        #print("--------------")
+    
+        
+        print("Extracting features...")
+        X_features = extractFeaturesForWindows(windows)
+        print("Size of features on subject", sub_id, ": ", X_features.shape)
+        print("--------------")
+
+        processed_subs[sub_id] = {'features': X_features, 'labels': window_labels}
+        
+        
+        print("======================")
+    return processed_subs
+def single_model_data(processed_subs):
+    all_feats = []
+    all_labels = []
+    #feature_names = X_train.columns
+    for sub_data in processed_subs.values():
+        all_feats.append(sub_data['features'])
+        all_labels.append(sub_data['labels'])
+    X = pd.concat(all_feats)
+    y = np.concatenate(all_labels)
+    
+    X_train, X_test, y_train, y_test = splitData(X, y)
+    #print(X_train)
+    feat_names = X_train.columns
+    print(feat_names)
+
+    #scale data (would scale it in processing subjects if we did LOSO)
+    #X_train_scaled = StandardScaler().fit_transform(X_train)
+    X_train_scaled = pd.DataFrame(StandardScaler().fit_transform(X_train), columns = feat_names)
+    X_test_scaled = pd.DataFrame(StandardScaler().fit_transform(X_test), columns = feat_names)
+    #X_test_scaled = StandardScaler().fit_transform(X_test)
+    return X_train_scaled, X_test_scaled, y_train, y_test
+#processed_subjects = processAllsubs()
+
+""", language="python", line_numbers=True)
 
 st.subheader("ML Method Implemented", divider="blue")
 st.code("""
@@ -81,7 +144,7 @@ def train_rf_classifier(X_train, y_train):
     rf_classifier.fit(X_train, y_train)
 
     return rf_classifier
-        """, language="python", line_numbers=False)
+        """, language="python", line_numbers=True)
 st.write("We employed a **Random Forest** classifier for gesture classification. This ensemble method was chosen due to its robustness against overfitting, ability to handle high-dimensional feature spaces, and effectiveness in capturing complex patterns within the EMG data. The model was configured with 1000 trees, no maximum depth, and specified minimum samples for splits and leaves to enhance generalization. Random Forest also provides feature importance metrics, allowing us to identify and prioritize the most influential features in the classification process. These characteristics make it well-suited for analyzing the multifaceted nature of EMG signals in gesture recognition tasks.")
 
 st.header("Results & Discussion", divider="rainbow")
