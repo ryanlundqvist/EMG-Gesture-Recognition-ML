@@ -76,7 +76,7 @@ st.write("3: CNN [Supervised] CNNs are great at classification for “spatial”
 
 st.header("Results & Discussion", divider="rainbow")
 st.subheader("Visualization", divider="blue")
-st.write("CONFUSION MATRIX HERE")
+st.image("ConfMatrixRandomForest_EMG_4641.png")
 st.write("We can see that the diagonal dominance in the confusion matrix above indicates that the model was able to correctly classify most samples in each seperate class. We are also able to see how the model doesn't perform as well with classes 3 and 6 (high values not on the diagonal for those class intersections), which could suggest some class imbalance. It is also more apparent because it seems like class 7 did not have nearly as many samples as the other classes, further signifying a potential class imbalance. To fix this, one could resample the data or use synthetic data generation, which would improve the model's performance on the classes with less samples.")
 st.subheader("Quantitative Metrics (Accuracy, Precision, Recall)", divider="blue")
 st.markdown("""
