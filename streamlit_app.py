@@ -95,7 +95,7 @@ When using the random forest method, we randomly select subsets of the training 
 
 When $\hat{y}$ is the prediction in a Random Forest, and $DT_i$ is the classification made by the $i$-th Decision Tree, this voting can be formalized with $n$ many trees as follows:
 
-$$\hat{y} = mode{ DT_1(x), DT_2(x), \ldots, DT_n(x) \}$$
+$$\hat{y} = mode\{ DT_1(x), DT_2(x), \ldots, DT_n(x) \}$$
 
 This technique is a solid fit for our problem space, because it is relatively good at robustly handling datasets that are large with high dimensionality (such as our EMG dataset) and the use of multiple decision trees "voting" can help cancel out imperfections caused by signal noise, which is difficult to fully remove from sensor data datasets, such as the dataset we use. Random forests are also convenient in that they lend themselves to being more interpretable than some other methods, since you can see how a classification was made in the decision trees that voted and can directly observe and visualize what features were important for that classification.
 
