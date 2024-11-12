@@ -89,13 +89,13 @@ A **decision tree** is a structure where classification flows from the root to a
 
 When $D$ is the dataset, $C$ is the number of classes, and $p_i$ is the probability that a randomly selected point in $D$ belongs to class $i$, Gini Impurity can be calculated as follows:
 
-$$\text{Gini}(D) = 1 - \sum_{i=1}^{C} (p_i)^2$$
+$$Gini(D) = 1 - \sum_{i=1}^{C} (p_i)^2$$
 
 When using the random forest method, we randomly select subsets of the training data to create diverse datasets, and for each of these subsets we build a decision tree by finding the best feature to split the data at each node. For the actual broader classification, each tree votes for a class assignment and the majority becomes the final prediction. T
 
 When $\hat{y}$ is the prediction in a Random Forest, and $DT_i$ is the classification made by the $i$-th Decision Tree, this voting can be formalized with $n$ many trees as follows:
 
-$$\hat{y} = \text{mode}\{ DT_1(x), DT_2(x), \ldots, DT_n(x) \}$$
+$$\hat{y} = mode{ DT_1(x), DT_2(x), \ldots, DT_n(x) \}$$
 
 This technique is a solid fit for our problem space, because it is relatively good at robustly handling datasets that are large with high dimensionality (such as our EMG dataset) and the use of multiple decision trees "voting" can help cancel out imperfections caused by signal noise, which is difficult to fully remove from sensor data datasets, such as the dataset we use. Random forests are also convenient in that they lend themselves to being more interpretable than some other methods, since you can see how a classification was made in the decision trees that voted and can directly observe and visualize what features were important for that classification.
 
