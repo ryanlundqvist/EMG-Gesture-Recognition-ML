@@ -112,11 +112,6 @@ Moving forward, we aim to both refine our methods for data preprocessing and att
 Finally, we would like to test all three of our models with variable real-world data (if we get the chance), by using our own sensors to test how well the models respond to the change that comes from a new data source. 
 """)
 
-st.subheader("Project Goals", divider="blue")
-st.write("To be able to classify hand gestures based on EMG data so that we would be able to help people who use prosthetics")
-st.subheader("Expected Results", divider="blue")
-st.write("We expect to classify the results by all the 3 techniques. We assume that CNN would perform the best, followed by GMM then Random Forests. Current literature places most models doing equally well [4], but we believe these models are more divergent than the models selected in the aforementioned literature. We picked these 3 topics as we thought it would be the most diverse set of topics to explore.")
-
 st.header("References", divider="rainbow")
 st.write("[1]Swati Shilaskar, Shripad Bhatlawande, Ranveer Chavare, Aditya Ingale, R. Joshi, and Aditya Vaishale, “Human Hand Movement Classification based on EMG Signal using different Feature Extractor,” Biomedical and Pharmacology Journal, vol. 17, no. 1, pp. 71–82, Mar. 2024, Available: https://biomedpharmajournal.org/vol17no1/human-hand-movement-classification-based-on-emg-signal-using-different-feature-extractor/")
 st.write("[2]K. H. Lee, J. Y. Min, and S. Byun, “Electromyogram-Based Classification of Hand and Finger Gestures Using Artificial Neural Networks,” Sensors, vol. 22, no. 1, p. 225, Dec. 2021, doi: https://doi.org/10.3390/s22010225.")
