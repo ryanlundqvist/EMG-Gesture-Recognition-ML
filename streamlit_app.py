@@ -67,6 +67,19 @@ st.subheader("Data Preprocessing", divider="blue")
 st.write("We began by cleaning the dataset by removing unmarked data (class 0) to ensure relevance. Features and labels were separated, and outliers were eliminated using the Z-score method with a threshold of 3 to maintain data integrity. The data was then standardized using `StandardScaler` to normalize feature scales, which is crucial for many machine learning algorithms. To capture temporal patterns in the EMG signals, we segmented the data into overlapping windows (window size of 100 with 50% overlap). From each window, we extracted statistical features such as standard deviation, maximum, minimum, root mean square (RMS), absolute mean, and zero crossings. Finally, the processed data was split into training and testing sets to facilitate model training and evaluation.")
 
 st.subheader("ML Method Implemented", divider="blue")
+st.code("def train_rf_classifier(X_train, y_train):
+
+    rf_classifier = RandomForestClassifier(
+        n_estimators=1000,
+        random_state=42,
+        max_depth=None,
+        min_samples_split=20,
+        min_samples_leaf=10
+    )
+
+    rf_classifier.fit(X_train, y_train)
+
+    return rf_classifier")
 st.write("We employed a **Random Forest** classifier for gesture classification. This ensemble method was chosen due to its robustness against overfitting, ability to handle high-dimensional feature spaces, and effectiveness in capturing complex patterns within the EMG data. The model was configured with 1000 trees, no maximum depth, and specified minimum samples for splits and leaves to enhance generalization. Random Forest also provides feature importance metrics, allowing us to identify and prioritize the most influential features in the classification process. These characteristics make it well-suited for analyzing the multifaceted nature of EMG signals in gesture recognition tasks.")
 
 st.header("Results & Discussion", divider="rainbow")
