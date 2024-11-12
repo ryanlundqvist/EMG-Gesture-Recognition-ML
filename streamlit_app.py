@@ -74,11 +74,44 @@ st.write("2: GMM [Supervised] GMM has the capability to group each hand gesture 
 st.write("3: CNN [Supervised] CNNs are great at classification for “spatial” data, and our multi-channel data is similar to an image’s pixel intensities, except we have electrical intensities instead.")
 
 
-st.header("Expected Results & Discussion", divider="rainbow")
-st.subheader("Quantitative Metrics", divider="blue")
-st.write("1: Confusion Matrix")
-st.write("2: F-Score")
-st.write("3: Accuracy")
+st.header("Results & Discussion", divider="rainbow")
+st.subheader("Visualization", divider="blue")
+st.write("CONFUSION MATRIX HERE")
+st.write("We can see that the diagonal dominance in the confusion matrix above indicates that the model was able to correctly classify most samples in each seperate class. We are also able to see how the model doesn't perform as well with classes 3 and 6 (high values not on the diagonal for those class intersections), which could suggest some class imbalance. It is also more apparent because it seems like class 7 did not have nearly as many samples as the other classes, further signifying a potential class imbalance. To fix this, one could resample the data or use synthetic data generation, which would improve the model's performance on the classes with less samples.")
+st.subheader("Quantitative Metrics (Confusion Matrix, Accuracy, F-Score)", divider="blue")
+st.markdown("- **Accuracy:** With the model achieving an accuracy of ~86%, we can see that it is able to successfully classify a significant majority of our data, supporting the fact that the random forest classifier performed relatively well overall. However, it is important to note that this accuracy, while good, doesn't account for the misclassifcation jumps in specific classes that could be significant in specific use cases.")
+st.markdown("- **F1:** With an F1 score of ~0.86, we are able to see that the model is able to act precisely with decent recall. The high precision shown in most classes compared to a slightly lower recall signify that the model is good at picking up negatives (e.g doesn't classify many false positives), but it is missing some true positives at times as well.")
+st.subheader("Analysis of Algorithm: Random Forest", divider="blue")
+st.markdown("""
+For making classifications, we use the **random forest** method with scikit-learn, which is an ensemble method of multiple decision trees, combining their results to make more accurate classifications and control overfitting. 
+
+A **decision tree** is a structure where classification flows from the root to a leaf node, where each intermediary node represents a decision based on a feature, each branch represents the subsequent outcome and choices based on the parent decision made, and each leaf node represents a final classification. When splitting the data based on a feature, the decision tree uses the metric of **Gini Impurity** to make each subset of data as pure as possible and improve classification accuracy (by reducing uncertainty about what a classification should be based on feature information). 
+
+When $D$ is the dataset, $C$ is the number of classes, and $p_i$ is the probability that a randomly selected point in $D$ belongs to class $i$, Gini Impurity can be calculated as follows:
+
+$$\text{Gini}(D) = 1 - \sum_{i=1}^{C} (p_i)^2$$
+
+When using the random forest method, we randomly select subsets of the training data to create diverse datasets, and for each of these subsets we build a decision tree by finding the best feature to split the data at each node. For the actual broader classification, each tree votes for a class assignment and the majority becomes the final prediction. T
+
+When $\hat{y}$ is the prediction in a Random Forest, and $DT_i$ is the classification made by the $i$-th Decision Tree, this voting can be formalized with $n$ many trees as follows:
+
+$$\hat{y} = \text{mode}\{ DT_1(x), DT_2(x), \ldots, DT_n(x) \}$$
+
+This technique is a solid fit for our problem space, because it is relatively good at robustly handling datasets that are large with high dimensionality (such as our EMG dataset) and the use of multiple decision trees "voting" can help cancel out imperfections caused by signal noise, which is difficult to fully remove from sensor data datasets, such as the dataset we use. Random forests are also convenient in that they lend themselves to being more interpretable than some other methods, since you can see how a classification was made in the decision trees that voted and can directly observe and visualize what features were important for that classification.
+
+For our implementation, we use a Random Forest of 1000 decision trees, with a starting seed of 42, no max depth (allowing for more purity), a minimum samples required to split of 20 (reducing overfitting for very small sample numbers), and a minimum number of samples in a leaf node of 10. Our model has decently solid performance, with an accuracy score of about 0.8634. Additionally, there is a decent balance between precision and recall, with an f1 score of about 0.8621. However as discussed in the "Quantitative Metrics" section, there is still room to improve. The most important features were derived from channel 7 of the signal data.
+            """)
+st.subheader("Next Steps", divider="blue")
+st.markdown("""
+Moving forward, we aim to both refine our methods for data preprocessing and attempt to improve our classification accuracy by implementing two other methods for gesture classification: Gaussian Mixture Models (GMMs) and Convolutional Neural Networks (CNNs).  
+
+- **Gaussian Mixture Models**, as we've discussed in class, are unsupervised probabilistic models that are helpful for clustering and provide soft assignments, which is helpful for gestures with somewhat overlapping EMG gesture signals. We will likely use GMMs in a more supervised way, by training separate GMMs for each class and using probabilistic reasoning to assign class labels to new data points.
+
+- **Convolutional Neural Networks** are deep learning models which have proven incredibly useful for application to computer vision problems, and deal well with spatial hierarchies. Similarly, CNNs might be adept at extracting spatial patterns from multi-channel EMG data. Further, CNNs are known to be robust and accurate in other classification tasks. 
+
+Finally, we would like to test all three of our models with variable real-world data (if we get the chance), by using our own sensors to test how well the models respond to the change that comes from a new data source. 
+""")
+
 st.subheader("Project Goals", divider="blue")
 st.write("To be able to classify hand gestures based on EMG data so that we would be able to help people who use prosthetics")
 st.subheader("Expected Results", divider="blue")
