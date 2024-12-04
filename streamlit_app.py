@@ -222,7 +222,7 @@ st.markdown("""
 - **Precision:** This model achieved a weighted average precision of 0.74. 
 - **Recall:** This model achieved a weighted average recall of 0.73. 
 
-With an F1 score of ~0.73, we are able to see that the model is able to act precisely with decent recall. 
+With an F1 score of ~0.73, we are able to see that the model is able to act precisely with decent recall. The balance between precision and recall indicates moderate performance but struggles with finer class distinctions.
 """)
 
 st.write("---------------------------------------------------------- Neural Network ----------------------------------------------------------")
@@ -231,7 +231,7 @@ st.markdown("""
 - **Precision:** This model achieved a weighted average precision of 0.67. 
 - **Recall:** This model achieved a weighted average recall of 0.66. 
 
-With an F1 score of ~0.66, we are able to see that the model is able to act with some precision and recall, although it struggles more than the other models with generally lower scores.
+With an F1 score of ~0.66, we are able to see that the model is able to act with some precision and recall, although it struggles more than the other models with generally lower scores. The similar precision and recall suggest consistent but limited effectiveness, likely due to feature or model limitations.
 """)
 
 
