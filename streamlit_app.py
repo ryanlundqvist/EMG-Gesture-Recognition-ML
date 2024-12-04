@@ -296,7 +296,7 @@ Each model comes with its own respective strengths and limtations, and the trade
 
 - Random Forests are generally simple and effective for small datasets but might struggle with modeling more complex patterns compared to some other models. They also seem to be relatively scalable, and the least computationally expensive, (even if they might not be as good as certain models with certain kinds of complexity). Overall relatively strong model. This was a good fit for us, also because the use of multiple decision trees "voting" can help cancel out imperfections caused by signal noise.
 - GMMs are intuitive and probabilistic but rely on assumptions (Gaussian) and struggle with high-dimensionality. Depending on how they are applied, GMMs are probably in between NNs and Random Forests in terms of computational complexity (due to reliance on probabilistic modeling and parameter initialization).
-- Neural Networks offer really strong flexibility and power but require significant data, tuning, and computational resources. Neural Networks are used in a ton of widely successful applications, but they seem to require more scale to be done correctly. They are the most, generally, computationally expensive method we tried.
+- Neural Networks offer really strong flexibility and power but require significant data, tuning, and computational resources. Neural Networks are used in a ton of widely successful applications, but they seem to require more scale to be done correctly. They are the most, generally, computationally expensive method we tried. Because our dataset was relatively not that large, our model quickly overfit to the training set and did poorly on our test set.
 """)
 
 
