@@ -288,7 +288,13 @@ We can see that the loss goes down in the first couple epochs then starts increa
 
 """)
 
+st.subheader("Comparison", divider = "blue")
 
+st.markdown(""" 
+Random Forests are simple and effective for small datasets but lack the capacity to model complex patterns.
+GMMs are intuitive and probabilistic but rely on assumptions (Gaussian) and struggle with high-dimensionality.
+Neural Networks offer unmatched flexibility and power but require significant data, tuning, and computational resources.
+""")
 
 
 
