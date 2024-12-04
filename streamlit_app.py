@@ -150,37 +150,41 @@ st.write("For our first model, we chose to use a **Random Forest** classifier fo
 
 st.write("---------------------------------------------------------- GMM ----------------------------------------------------------")
 st.code("""
-def train_rf_classifier(X_train, y_train):
+def train_supervised_gmms(X_train, y_train, n_components_per_class=1):
+    classes = np.unique(y_train)
+    gmm_models = {}
+    priors = {}
 
-    rf_classifier = RandomForestClassifier(
-        n_estimators=1000,
-        random_state=42,
-        max_depth=None,
-        min_samples_split=20,
-        min_samples_leaf=10
-    )
+    for cls in classes:
+        X_cls = X_train[y_train == cls]
+        
+        gmm = GaussianMixture(n_components=n_components_per_class, covariance_type='full', random_state=42)
+        gmm.fit(X_cls)
+        
+        gmm_models[cls] = gmm
+        priors[cls] = len(X_cls) / len(y_train)
 
-    rf_classifier.fit(X_train, y_train)
-
-    return rf_classifier
+    return gmm_models, priors
         """, language="python", line_numbers=True)
 st.write("For our first model, we chose to use a **Random Forest** classifier for gesture classification. This is an ensemble method and was (in part) chosen because of its robustness against overfitting, ability to handle high-dimensional feature spaces (like EMG data), and effectiveness in capturing complex patterns within the EMG data. The model was configured with 1000 decision trees, no maximum depth, and specified minimum samples for splits and leaves to enhance generalization. Another thing to note is that a Random Forest also provides feature importance metrics, allowing us to identify and (potentially) prioritize the most influential features in the classification process. We think all of these characteristics make it generally well-suited for classifying gestures from EMG signals.")
 
 st.write("---------------------------------------------------------- Neural Network ----------------------------------------------------------")
 st.code("""
-def train_rf_classifier(X_train, y_train):
+def train_nn_classifier(X_train, y_train, input_dim, num_classes, my_epochs=20):
+    model = Sequential([
+        Dense(128, input_dim=input_dim, activation='relu'),
+        Dropout(0.5),  
+        Dense(64, activation='relu'),
+        Dropout(0.3),
+        Dense(num_classes, activation='softmax')
+    ])
 
-    rf_classifier = RandomForestClassifier(
-        n_estimators=1000,
-        random_state=42,
-        max_depth=None,
-        min_samples_split=20,
-        min_samples_leaf=10
-    )
+    optimizer = Adam(learning_rate=0.001)  # Lower learning rate
+    model.compile(optimizer=optimizer, loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 
-    rf_classifier.fit(X_train, y_train)
 
-    return rf_classifier
+    history = model.fit(X_train, y_train, epochs=my_epochs, batch_size=32, verbose=1)
+    return model, history
         """, language="python", line_numbers=True)
 st.write("For our first model, we chose to use a **Random Forest** classifier for gesture classification. This is an ensemble method and was (in part) chosen because of its robustness against overfitting, ability to handle high-dimensional feature spaces (like EMG data), and effectiveness in capturing complex patterns within the EMG data. The model was configured with 1000 decision trees, no maximum depth, and specified minimum samples for splits and leaves to enhance generalization. Another thing to note is that a Random Forest also provides feature importance metrics, allowing us to identify and (potentially) prioritize the most influential features in the classification process. We think all of these characteristics make it generally well-suited for classifying gestures from EMG signals.")
 
