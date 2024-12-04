@@ -166,7 +166,7 @@ def train_supervised_gmms(X_train, y_train, n_components_per_class=1):
 
     return gmm_models, priors
         """, language="python", line_numbers=True)
-st.write("For our first model, we chose to use a **Random Forest** classifier for gesture classification. This is an ensemble method and was (in part) chosen because of its robustness against overfitting, ability to handle high-dimensional feature spaces (like EMG data), and effectiveness in capturing complex patterns within the EMG data. The model was configured with 1000 decision trees, no maximum depth, and specified minimum samples for splits and leaves to enhance generalization. Another thing to note is that a Random Forest also provides feature importance metrics, allowing us to identify and (potentially) prioritize the most influential features in the classification process. We think all of these characteristics make it generally well-suited for classifying gestures from EMG signals.")
+st.write("Our code for GMM trains a separate Gaussian Mixture Model for each class to model its feature distribution. Each GMM uses n_components_per_class mixture components, allowing for flexible modeling of multimodal distributions, with covariance_type='full' enabling detailed covariance fitting. Class priors are calculated from the training data. This approach is well-suited for probabilistic classification tasks like gesture recognition, becuase it is pretty good at capturing class-specific patterns and handles data variance generally well.")
 
 st.write("---------------------------------------------------------- Neural Network ----------------------------------------------------------")
 st.code("""
@@ -186,7 +186,7 @@ def train_nn_classifier(X_train, y_train, input_dim, num_classes, my_epochs=20):
     history = model.fit(X_train, y_train, epochs=my_epochs, batch_size=32, verbose=1)
     return model, history
         """, language="python", line_numbers=True)
-st.write("For our first model, we chose to use a **Random Forest** classifier for gesture classification. This is an ensemble method and was (in part) chosen because of its robustness against overfitting, ability to handle high-dimensional feature spaces (like EMG data), and effectiveness in capturing complex patterns within the EMG data. The model was configured with 1000 decision trees, no maximum depth, and specified minimum samples for splits and leaves to enhance generalization. Another thing to note is that a Random Forest also provides feature importance metrics, allowing us to identify and (potentially) prioritize the most influential features in the classification process. We think all of these characteristics make it generally well-suited for classifying gestures from EMG signals.")
+st.write("Our code for NN defines a feedforward architecture with three fully connected layers. The first layer has 128 neurons with ReLU activation and a 50% dropout rate, while the second layer reduces complexity with 64 neurons and a 30% dropout rate. The final layer employs a softmax activation for multi-class classification. The model is optimized using the Adam optimizer with a 0.001 learning rate and trained with a sparse_categorical_crossentropy loss function for 20 epochs with a batch size of 32. This neural network model was selected because neural nets are good at handling non-linear or complicated data, like EMG signals.")
 
 
 st.header("Results & Discussion", divider="rainbow")
