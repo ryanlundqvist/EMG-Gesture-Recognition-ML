@@ -274,11 +274,12 @@ For our implementation, we use a Random Forest of 1000 decision trees, with a st
 
 st.subheader("Next Steps", divider="blue")
 st.markdown("""
-Moving forward, we aim to both refine our methods for data preprocessing and attempt to improve our classification accuracy by implementing two other methods for gesture classification: Gaussian Mixture Models (GMMs) and Convolutional Neural Networks (CNNs).  
+Moving forward, we aim to both refine our methods for data preprocessing and attempt to improve our classification accuracy by attempting a variety of strategies. For instance, we are considering:  
 
-- **Gaussian Mixture Models**, as we've discussed in class, are unsupervised probabilistic models that are helpful for clustering and provide soft assignments, which is helpful for gestures with somewhat overlapping EMG gesture signals. We will likely use GMMs in a more supervised way, by training separate GMMs for each class and using probabilistic reasoning to assign class labels to new data points.
-
-- **Convolutional Neural Networks** are deep learning models which have proven incredibly useful for application to computer vision problems, and deal well with spatial hierarchies. Similarly, CNNs might be adept at extracting spatial patterns from multi-channel EMG data. Further, CNNs are known to be robust and accurate in other classification tasks. 
+- Hyperparameter tuning
+- Data augmentation (adding noise or time-warping for robustness)
+- Feature engineering
+- Try one vs rest classification
 
 Finally, we would like to test all three of our models with variable real-world data (if we get the chance), by using our own sensors to test how well the models respond to the change that comes from a new data source. 
 """)
