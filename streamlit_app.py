@@ -187,9 +187,23 @@ st.write("For our first model, we chose to use a **Random Forest** classifier fo
 
 st.header("Results & Discussion", divider="rainbow")
 st.subheader("Visualization (Confusion Matrix)", divider="blue")
+st.write("---------------------------------------------------------- Random Forest ----------------------------------------------------------")
 st.image("ConfMatrixRandomForest_EMG_4641.png")
 st.write("We can see that the diagonal dominance in the confusion matrix above indicates that the model was able to correctly classify most samples in each seperate class. We are also able to see how the model doesn't perform as well with classes 3 and 6 (high values not on the diagonal for those class intersections), which could suggest some class imbalance. It is also more apparent because it seems like class 7 did not have nearly as many samples as the other classes, further signifying a potential class imbalance. To fix this, one could resample the data or use synthetic data generation, which would improve the model's performance on the classes with less samples.")
+
+st.write("---------------------------------------------------------- GMM ----------------------------------------------------------")
+st.image("ConfMatrixRandomForest_EMG_4641.png")
+st.write(" CONF MATRIX ANALYSIS HERE ")
+
+st.write("---------------------------------------------------------- Neural Network ----------------------------------------------------------")
+st.image("ConfMatrixRandomForest_EMG_4641.png")
+st.write(" CONF MATRIX ANALYSIS HERE ")
+
+
 st.subheader("Quantitative Metrics (Accuracy, Precision, Recall)", divider="blue")
+
+
+st.write("---------------------------------------------------------- Random Forest ----------------------------------------------------------")
 st.markdown("""
 - **Accuracy:** With the model achieving an accuracy of ~86%, we can see that it is able to successfully classify a significant majority of our data, supporting the fact that the random forest classifier performed relatively well overall. However, it is important to note that this accuracy, while good, doesn't account for the misclassification jumps in specific classes that could be significant in specific use cases.
 - **Precision:** Our precision gives us an indicator of the proportion of correctly predicted gestures out of all gestures that the model predicted for each class. Overall, we can see that we obtained a weighted average precision of 0.87, which is fairly good. This precision does vary by class however, with a minimum of 0.81 and a maximum of 1.0. 
@@ -197,6 +211,27 @@ st.markdown("""
 
 With an F1 score of ~0.86, we are able to see that the model is able to act precisely with decent recall. The high precision shown in most classes compared to a slightly lower recall signify that the model is good at picking up negatives (e.g doesn't classify many false positives), but it is missing some true positives at times as well.
 """)
+
+st.write("---------------------------------------------------------- GMM ----------------------------------------------------------")
+st.markdown("""
+- **Accuracy:** This model achieved an accuracy of ~73%. we can see that it is able to successfully classify a significant majority of our data, supporting the fact that the random forest classifier performed relatively well overall. However, it is important to note that this accuracy, while good, doesn't account for the misclassification jumps in specific classes that could be significant in specific use cases.
+- **Precision:** This model achieved a weighted average precision of 0.74. 
+- **Recall:** This model achieved a weighted average recall of 0.73. 
+
+With an F1 score of ~0.73, we are able to see that the model is able to act precisely with decent recall. The high precision shown in most classes compared to a slightly lower recall signify that the model is good at picking up negatives (e.g doesn't classify many false positives), but it is missing some true positives at times as well.
+""")
+
+st.write("---------------------------------------------------------- Neural Network ----------------------------------------------------------")
+st.markdown("""
+- **Accuracy:** This model achieved an accuracy of ~66%. 
+- **Precision:** This model achieved a weighted average precision of 0.67. 
+- **Recall:** This model achieved a weighted average recall of 0.66. 
+
+With an F1 score of ~0.66, we are able to see that the model is able to act precisely with decent recall. The high precision shown in most classes compared to a slightly lower recall signify that the model is good at picking up negatives (e.g doesn't classify many false positives), but it is missing some true positives at times as well.
+""")
+
+
+
 st.subheader("Analysis of Algorithm: Random Forest", divider="blue")
 st.markdown("""
 For making classifications, we use the **random forest** method with scikit-learn, which is an ensemble method of multiple decision trees, combining their results to make more accurate classifications and control overfitting. 
