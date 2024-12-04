@@ -263,7 +263,11 @@ For our implementation, we use a Random Forest of 1000 decision trees, with a st
 
 st.subheader("Analysis of Algorithm: GMM", divider="blue")
 st.markdown("""
-GMM ANALYSIS HERE
+GMMs can be well-suited for the gesture recognition problem, because their probabilistic nature helps for handling noisy, overlapping, and multimodal data, as is the case with our EMG signal data. Our implementation of the GMM is essentially a supervised GMM model, in which seperate GMMs are trained for each class. This enables the model to learn the unique charecteristics and distributions of each respective class, ensuring that class labels guide the training process rather than unsupervised clustering. 
+
+We track the model's performance using accuracy, f1 score, and a confusion matrix. The accuracy score is 73%, which indicates pretty decent model performance. The weighted average f1 score of .73 aligns with the accuracy, representing decent consistency across classes.
+
+We can analyze the precision and recall numbers to see some aspects of the model that could be improved. For example, class 1 achieves high precision and recall, but class 7 (which is smaller) achieves a much lower score. This signifies that the model is likely experiencing some class imbalance. The ECG data is also likely too complex for a GMM implementation that assumes a gaussian distribution.
             """)
 
 
