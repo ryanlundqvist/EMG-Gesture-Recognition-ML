@@ -214,11 +214,11 @@ With an F1 score of ~0.86, we are able to see that the model is able to act prec
 
 st.write("---------------------------------------------------------- GMM ----------------------------------------------------------")
 st.markdown("""
-- **Accuracy:** This model achieved an accuracy of ~73%. we can see that it is able to successfully classify a significant majority of our data, supporting the fact that the random forest classifier performed relatively well overall. However, it is important to note that this accuracy, while good, doesn't account for the misclassification jumps in specific classes that could be significant in specific use cases.
+- **Accuracy:** This model achieved an accuracy of ~73%. 
 - **Precision:** This model achieved a weighted average precision of 0.74. 
 - **Recall:** This model achieved a weighted average recall of 0.73. 
 
-With an F1 score of ~0.73, we are able to see that the model is able to act precisely with decent recall. The high precision shown in most classes compared to a slightly lower recall signify that the model is good at picking up negatives (e.g doesn't classify many false positives), but it is missing some true positives at times as well.
+With an F1 score of ~0.73, we are able to see that the model is able to act precisely with decent recall. 
 """)
 
 st.write("---------------------------------------------------------- Neural Network ----------------------------------------------------------")
@@ -227,7 +227,7 @@ st.markdown("""
 - **Precision:** This model achieved a weighted average precision of 0.67. 
 - **Recall:** This model achieved a weighted average recall of 0.66. 
 
-With an F1 score of ~0.66, we are able to see that the model is able to act precisely with decent recall. The high precision shown in most classes compared to a slightly lower recall signify that the model is good at picking up negatives (e.g doesn't classify many false positives), but it is missing some true positives at times as well.
+With an F1 score of ~0.66, we are able to see that the model is able to act with some precision and recall, although it struggles more than the other models with generally lower scores.
 """)
 
 
