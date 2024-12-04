@@ -197,11 +197,11 @@ st.write("We can see that the diagonal dominance in the confusion matrix above i
 
 st.write("---------------------------------------------------------- GMM ----------------------------------------------------------")
 st.image("ConfMatrixGMM_EMG_4641.png")
-st.write(" CONF MATRIX ANALYSIS HERE ")
+st.write("In this confusion matrix, we can notice substantially less diagonal dominance than in the one above for Random Forest, indicating that the model struggled slightly more in classification. Similarly, there is a pervasive struggle with class 7 (likely due to a lack of data).")
 
 st.write("---------------------------------------------------------- Neural Network ----------------------------------------------------------")
 st.image("ConfMatrixNN_EMG_4641.png")
-st.write(" CONF MATRIX ANALYSIS HERE ")
+st.write("This confusion matrix is the least diagonal, although it is still clearly diagonal and demonstrates a general ability at classification. This is related to how, despite our expectations, the Neural Network model struggled more with classification than the other techniques. Again there is a struggle with class 7.")
 
 
 st.subheader("Quantitative Metrics (Accuracy, Precision, Recall)", divider="blue")
