@@ -130,7 +130,7 @@ def single_model_data(processed_subs):
 """, language="python", line_numbers=True)
 
 st.subheader("ML Methods Implemented", divider="blue")
-st.write("Random Forest:")
+st.write("----------------------------- Random Forest -----------------------------")
 st.code("""
 def train_rf_classifier(X_train, y_train):
 
