@@ -294,9 +294,9 @@ st.markdown("""
 
 Each model comes with its own respective strengths and limtations, and the tradeoff between these and what you decide to prioritize can depend problem space. Accordingly, we tried to pick models that might be beneficial for this sort of problem. Comparing:
 
-- Random Forests are simple and effective for small datasets but lack the capacity to model complex patterns.
-- GMMs are intuitive and probabilistic but rely on assumptions (Gaussian) and struggle with high-dimensionality.
-- Neural Networks offer really strong flexibility and power but require significant data, tuning, and computational resources.
+- Random Forests are generally simple and effective for small datasets but might struggle with modeling more complex patterns compared to some other models. They also seem to be relatively scalable (even if they might not be as good as certain models with certain kinds of complexity). Overall relatively strong model. This was a good fit for us, also because the use of multiple decision trees "voting" can help cancel out imperfections caused by signal noise.
+- GMMs are intuitive and probabilistic but rely on assumptions (Gaussian) and struggle with high-dimensionality. 
+- Neural Networks offer really strong flexibility and power but require significant data, tuning, and computational resources. Neural Networks are used in a ton of widely successful applications, but they seem to require more scale to be done correctly.
 """)
 
 
