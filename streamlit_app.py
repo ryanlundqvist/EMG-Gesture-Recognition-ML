@@ -314,6 +314,6 @@ st.write("[4]M. Simão, P. Neto, and O. Gibaru, “EMG-based online classificati
 st.header("Gantt Chart", divider="rainbow")
 st.image("4641NewGantt.png")
 st.header("Contributions", divider="rainbow")
-st.image("contributions.png")
+st.image("4641NewContributions.png")
 
 
