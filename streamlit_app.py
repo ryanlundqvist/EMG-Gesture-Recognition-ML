@@ -248,25 +248,16 @@ For our implementation, we use a Random Forest of 1000 decision trees, with a st
 
 
 st.subheader("Analysis of Algorithm: Neural Network", divider="blue")
-st.markdown("""
-For making classifications, we use the **random forest** method with scikit-learn, which is an ensemble method of multiple decision trees, combining their results to make more accurate classifications and control overfitting. 
+st.markdown(""" 
 
-A **decision tree** is a structure where classification flows from the root to a leaf node, where each intermediary node represents a decision based on a feature, each branch represents the subsequent outcome and choices based on the parent decision made, and each leaf node represents a final classification. When splitting the data based on a feature, the decision tree uses the metric of **Gini Impurity** to make each subset of data as pure as possible and improve classification accuracy (by reducing uncertainty about what a classification should be based on feature information). 
+Our neural network is a simple model for classification with two hidden layers using ReLU activation. It includes 50% and 30% dropout to prevent overfitting and trains with a learning rate of 0.001 using the Adam optimizer. We also track its performance with accuracy, F1-score, and a confusion matrix, plus plot its loss and accuracy over the training process.
 
-When $D$ is the dataset, $C$ is the number of classes, and $p_i$ is the probability that a randomly selected point in $D$ belongs to class $i$, Gini Impurity can be calculated as follows:
+The accuracy score is 65.8%, which indicates moderate performance on the test data.
+The weighted average F1-score of 0.66 aligns with the accuracy, showing consistency accross classes.
 
-$$Gini(D) = 1 - \sum_{i=1}^{C} (p_i)^2$$
+We can see that the loss goes down in the first couple epochs then starts increasing, this issue might be that our model is too complex and that potential issues like learning rate, overfitting, or exploding gradients might exist.
 
-When using the random forest method, we randomly select subsets of the training data to create diverse datasets, and for each of these subsets we build a decision tree by finding the best feature to split the data at each node. For the actual broader classification, each tree votes for a class assignment and the majority becomes the final prediction. T
-
-When $\hat{y}$ is the prediction in a Random Forest, and $DT_i$ is the classification made by the $i$-th Decision Tree, this voting can be formalized with $n$ many trees as follows:
-
-$$\hat{y} = mode\{ DT_1(x), DT_2(x), \ldots, DT_n(x) \}$$
-
-This technique is a solid fit for our problem space, because it is relatively good at robustly handling datasets that are large with high dimensionality (such as our EMG dataset) and the use of multiple decision trees "voting" can help cancel out imperfections caused by signal noise, which is difficult to fully remove from sensor data datasets, such as the dataset we use. Random forests are also convenient in that they lend themselves to being more interpretable than some other methods, since you can see how a classification was made in the decision trees that voted and can directly observe and visualize what features were important for that classification.
-
-For our implementation, we use a Random Forest of 1000 decision trees, with a starting seed of 42, no max depth (allowing for more purity), a minimum samples required to split of 20 (reducing overfitting for very small sample numbers), and a minimum number of samples in a leaf node of 10. Our model has decently solid performance, with an accuracy score of about 0.8634. Additionally, there is a decent balance between precision and recall, with an f1 score of about 0.8621. However as discussed in the "Quantitative Metrics" section, there is still room to improve. The most important features were derived from channel 7 of the signal data.
-            """)
+""")
 
 
 
