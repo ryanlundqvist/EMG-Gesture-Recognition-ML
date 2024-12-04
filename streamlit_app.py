@@ -192,6 +192,7 @@ st.write("Our code for NN defines a feedforward architecture with three fully co
 st.header("Results & Discussion", divider="rainbow")
 st.subheader("Visualizations (Plot & Confusion Matrices)", divider="blue")
 st.image("pvsr.png")
+st.write("Above is the plotted Precision vs. Recall for the three models we employ. It gives a sense of how the classes (1 - 7) compare in Precision vs. Recall.")
 st.write("---------------------------------------------------------- Random Forest ----------------------------------------------------------")
 st.image("ConfMatrixRandomForest_EMG_4641.png")
 st.write("We can see that the diagonal dominance in the confusion matrix above indicates that the model was able to correctly classify most samples in each seperate class. We are also able to see how the model doesn't perform as well with classes 3 and 6 (high values not on the diagonal for those class intersections), which could suggest some class imbalance. It is also more apparent because it seems like class 7 did not have nearly as many samples as the other classes, further signifying a potential class imbalance. To fix this, one could resample the data or use synthetic data generation, which would improve the model's performance on the classes with less samples.")
