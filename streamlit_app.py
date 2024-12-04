@@ -190,7 +190,7 @@ st.write("Our code for NN defines a feedforward architecture with three fully co
 
 
 st.header("Results & Discussion", divider="rainbow")
-st.subheader("Visualizations", divider="blue")
+st.subheader("Visualizations (Plot & Confusion Matrices)", divider="blue")
 st.image("pvsr.png")
 st.write("---------------------------------------------------------- Random Forest ----------------------------------------------------------")
 st.image("ConfMatrixRandomForest_EMG_4641.png")
