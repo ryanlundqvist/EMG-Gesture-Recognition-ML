@@ -319,10 +319,10 @@ st.write("[2]K. H. Lee, J. Y. Min, and S. Byun, “Electromyogram-Based Classifi
 st.write("[3]G. Yu, Z. Deng, Z. Bao, Y. Zhang, and B. He, “Gesture Classification in Electromyography Signals for Real-Time Prosthetic Hand Control Using a Convolutional Neural Network-Enhanced Channel Attention Model,” Bioengineering, vol. 10, no. 11, pp. 1324–1324, Nov. 2023, doi: https://doi.org/10.3390/bioengineering10111324.")
 st.write("[4]M. Simão, P. Neto, and O. Gibaru, “EMG-based online classification of gestures with recurrent neural networks,” Pattern Recognition Letters, vol. 128, pp. 45–51, Dec. 2019, doi: https://doi.org/10.1016/j.patrec.2019.07.021. ‌")
 
-
-st.header("Gantt Chart", divider="rainbow")
-st.image("4641NewGantt.png")
-st.header("Contributions", divider="rainbow")
-st.image("4641NewContributions.png")
+#The following is only specific to the last milestone of the project and is commented out:
+# st.header("Gantt Chart", divider="rainbow")
+# st.image("4641NewGantt.png")
+# st.header("Contributions", divider="rainbow")
+# st.image("4641NewContributions.png")
 
 
